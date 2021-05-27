@@ -15,11 +15,6 @@ class StrategyFillRandomValues;
 
 class ArrayInt {
 public:
-	ArrayInt(){
-		strategy_ = nullptr;
-		lenght_ = 0;
-		arr = nullptr;
-	}
 	ArrayInt(int length) {
 		lenght_ = length;
 		arr = new int[lenght_];
@@ -29,7 +24,7 @@ public:
 		arr = new int[length];
 		strategy_ = strategy;
 	}
-	ArrayInt& fillArray() {
+	ArrayInt& fillArray() { 
 		strategy_->execute(*this);
 		return *this;
 	}
@@ -55,9 +50,9 @@ public:
 		delete strategy_;
 	}
 private:
-	Strategy* strategy_;
-	int lenght_;
-	int* arr;
+	Strategy* strategy_ = nullptr; // не так, в конструкторе
+	int lenght_ = 0; //не так, в конструкторе
+	int* arr = nullptr; //не так, в конструкторе
 };
 
 
